@@ -201,16 +201,17 @@ def run_scraper(config: Dict[str, Any], storage: StorageBackend) -> None:
 # ─────────────────────────── Example stub ──────────────────────────
 if __name__ == "__main__":
     CONFIG = {
-        "url": "https://www.w3schools.com/html/html_tables.asp",
-        "row_css": "#customers tr:not(:first-child)",  # skip header row
-        "column_map": {
-            "company": 0,
-            "contact": 1,
-            "country": 2
+        # Fill with *your* site details — nothing here is tied to any brand
+        "url": "https://example.com/table-page",
+        "row_css": "table#main tbody tr",
+        "column_map": {          # readable_name : <td> index
+            "id": 0,
+            "title": 1,
+            "price": 2,
+            "updated": 3,
         },
-        "key_fields": ["company"]
+        "key_fields": ["id"],  
     }
-
     storage_backend = LocalJSON("example_results.json")
     run_scraper(CONFIG, storage_backend)
 
