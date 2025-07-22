@@ -210,7 +210,7 @@ if __name__ == "__main__":
             "price": 2,
             "updated": 3,
         },
-        "key_fields": ["id"],  
+        "key_fields": ["id"], # identifies a unique item
     }
     storage_backend = LocalJSON("example_results.json")
     run_scraper(CONFIG, storage_backend)
